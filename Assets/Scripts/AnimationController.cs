@@ -13,18 +13,26 @@ public class AnimationController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        OnMouseDown();
+    }
+
     void OnMouseDown()
     {
         // animationVariableÀ» ¼öÁ¤
 
-        if (animationVariable >= 0 && animationVariable < 2)
+        if(Input.GetMouseButtonDown(0))
         {
-            animationVariable++;
+            if (animationVariable >= 0 && animationVariable < 2)
+            {
+                animationVariable++;
+            }
+            else
+            {
+                animationVariable = 0;
+            }
+            _animator.SetInteger("State", animationVariable);
         }
-        else
-        {
-            animationVariable = 0;
-        }
-        _animator.SetInteger("State", animationVariable);
     }
 }
