@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +9,10 @@ public class ScoreButton : MonoBehaviour
 {
 
     Button scoreButton;
-    public ScoreText scoreText; 
+    public ScoreText scoreText;
+    TextMeshProUGUI ScoreTxt;
+
+    public Action<int> OnScoreChanged;
 
     public int score = 0;
 
@@ -15,12 +20,12 @@ public class ScoreButton : MonoBehaviour
     {
         scoreButton = GetComponent<Button>();
         scoreButton.onClick.AddListener(PointUp);
-        scoreButton.onClick.AddListener(scoreText.RefreshUI);
     }
 
     void PointUp()
     {
-        score++;
+        score ++;
+        OnScoreChanged?.Invoke(score);
     }
 
 
