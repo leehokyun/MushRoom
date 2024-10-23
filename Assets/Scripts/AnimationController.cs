@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class AnimationController : MonoBehaviour
 {
@@ -20,9 +21,9 @@ public class AnimationController : MonoBehaviour
 
     void OnMouseDown()
     {
-        // animationVariable을 수정
 
-        if(Input.GetMouseButtonDown(0))
+        // animationVariable을 수정
+        if (Input.GetMouseButtonDown(0))
         {
             if (animationVariable >= 0 && animationVariable < 2)
             {
