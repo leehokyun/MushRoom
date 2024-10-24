@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,35 +6,30 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class AnimationController : MonoBehaviour
 {
-    private int animationVariable = 0;
+    private int animationVariable { get; set; }  = 0;
+
+    public static Action animationController;
+
     private Animator _animator;
 
     // _animator 세팅 
     void Awake()
     {
         _animator = GetComponent<Animator>();
+
+        animationController = () => { ChangeAnimation(); };
     }
 
-    private void Update()
+    public void ChangeAnimation()
     {
-        OnMouseDown();
-    }
+        _animator.SetInteger("State", animationVariable);
 
-    void OnMouseDown()
-    {
+        animationVariable++;
 
-        // animationVariable을 수정
-        if (Input.GetMouseButtonDown(0))
+        if (animationVariable > 2)
         {
-            if (animationVariable >= 0 && animationVariable < 2)
-            {
-                animationVariable++;
-            }
-            else
-            {
-                animationVariable = 0;
-            }
-            _animator.SetInteger("State", animationVariable);
+            animationVariable = 0;
         }
+        Debug.Log(animationVariable);
     }
 }
