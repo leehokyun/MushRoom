@@ -23,16 +23,4 @@ public class ScoreText : MonoBehaviour
     {
         ScoreTxt.text = scoreButton.score.ToString();
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
