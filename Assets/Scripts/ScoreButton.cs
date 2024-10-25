@@ -26,7 +26,6 @@ public class ScoreButton : MonoBehaviour
     {
         score ++;
         OnScoreChanged?.Invoke(score);
-        AnimationController.animationController();
     }
 
 }

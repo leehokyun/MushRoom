@@ -8,7 +8,7 @@ public class AnimationController : MonoBehaviour
 {
     private int animationVariable { get; set; }  = 0;
 
-    public static Action animationController;
+    public Action animationController; //싱글턴 빼고는 static 안붙인다고 보면 된다.
 
     private Animator _animator;
 
@@ -17,10 +17,10 @@ public class AnimationController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
 
-        animationController = () => { ChangeAnimation(); };
+        //animationController = () => { ChangeAnimation(); };
     }
 
-    public void ChangeAnimation()
+    public void OnMouseDown()
     {
         _animator.SetInteger("State", animationVariable);
 

@@ -17,6 +17,7 @@ public class ScoreText : MonoBehaviour
         ScoreTxt = GetComponent<TextMeshProUGUI>();
 
         scoreButton.OnScoreChanged += RefreshUI;
+        scoreButton.OnScoreChanged?.Invoke(1); 
     }
 
     public void RefreshUI(int newScore)
